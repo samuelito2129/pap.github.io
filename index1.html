@@ -12,7 +12,7 @@
           width: 6.8cm;
           height: 14cm;
           margin: 0 auto;
-          margin-top: 5px;
+          margin-top: 0px;
         }
          .container {
             display: flex;
@@ -22,11 +22,9 @@
             margin-bottom: -10px;
         }
          .parrafo-inferior{
-            margin-right: 1px; /* Espacio entre los párrafos */
-            margin-top: 5px;
-            line-height: 0px; /* Controla el interlineado dentro del párrafo */
-            padding: 0px;
+            font-family: Arial, sans-serif;
             text-align: center; /* Alinear el texto al centro */
+            line-height: 2px;
         }
         .centrar-texto {
             text-align: center; /* Alinear el texto al centro */
@@ -44,6 +42,7 @@
    
    border-collapse: collapse; /* Borde sólido de 1 píxel en color negro */
    width: 100%;
+   margin-bottom: -3px;
    
    
  }
@@ -115,11 +114,11 @@ td.especial {
       </div>
 
       <div class="container">    
-        <p>Para:</p>
+        <p>Para:&nbsp;</p>
         <p id=Nombre></p>&nbsp;&nbsp;
-        <p>Fecha:</p>
+        <p>Fecha:&nbsp;</p>
         <p id=Fecha></p>&nbsp;&nbsp;
-        <p>H:</p>
+        <p>H:&nbsp;</p>
         <p id="Hora"></p>
     </div> 
     <table>
@@ -202,9 +201,9 @@ td.especial {
         </tbody>
     </table> 
    <div class="parrafo-inferior">
-    <p style="font-size: 14px;font-family: Arial, sans-serif;margin-top: 4px; ">Valor:<span><strong id="valor"> </strong></span></p>
-    <p style="font-size: 11px;font-family: Arial, sans-serif;margin-top: 1px;">&#128073; Por favor revise este ticket antes de salir </p>
-    <p style="font-size: 11px;font-family: Arial, sans-serif;margin-top: 12px;">&#128522; QUE TENGA BUENA VENTA &#128522; </p>
+    <p style="font-size: 14px">Valor:<span><strong id="valor"> </strong></span></p>
+    <p style="font-size: 11px">&#128073; Por favor revise este ticket antes de salir </p>
+    <p style="font-size: 11px">&#128522; QUE TENGA BUENA VENTA &#128522; </p>
     
    </div>
 </body>
