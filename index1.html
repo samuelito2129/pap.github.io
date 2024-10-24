@@ -84,6 +84,18 @@ td {
 td.especial {
     border-bottom: 1px dashed #C0C0C0;
 }
+  @media print {
+        body {
+            margin-top: 0; /* Eliminar margen superior al imprimir */
+            padding-top: 0; /* Eliminar relleno superior si lo hay */
+        }
+
+        /* Eliminar márgenes específicos que solo afectan la impresión */
+        p, h2, .container {
+            margin-top: 0 !important; /* Sobreescribir cualquier margen superior */
+            margin-bottom: 0 !important; /* Sobreescribir cualquier margen inferior */
+        }
+    }        
     </style>
      <script>
         // Función para obtener los parámetros de la URL
