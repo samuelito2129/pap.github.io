@@ -9,130 +9,124 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-          width: 6.8cm;
-          height: 14cm;
-          margin: 0 auto;
-          margin-top: 0px;
+            width: 6.8cm;
+            height: 14cm;
+            margin: 0 auto;
+            margin-top: 0px;
         }
-         .container {
+        .container {
             display: flex;
             font-size: 11.8px; 
             font-family: Arial, sans-serif;
-            margin-top: -10px; /* Reduce el margen superior del párrafo */
+            margin-top: -10px;
             margin-bottom: -10px;
         }
-         .parrafo-inferior{
+        .parrafo-inferior {
             font-family: Arial, sans-serif;
-            text-align: center; /* Alinear el texto al centro */
+            text-align: center;
             line-height: 2px;
         }
         .centrar-texto {
-            text-align: center; /* Alinear el texto al centro */
+            text-align: center;
         }
         h2 {
             font-size: 13px;
             font-family: 'Lexend', sans-serif;
-            margin-bottom: -10px; /* Reduce el margen inferior del título */
-            line-height: 1; /* Controla la altura de línea dentro del título */
+            margin-bottom: -10px;
+            line-height: 1;
             padding: 0px;
             margin-top: -7px;
-           
         }
- table, th, td {
-   
-   border-collapse: collapse; /* Borde sólido de 1 píxel en color negro */
-   width: 100%;
-   margin-bottom: -5px;
-   
-   
- }
-td {
-    font-size: 12px;
-    font-family: Arial, sans-serif;
-    padding: 5px;
-    border: 0px solid #C0C0C0;
-  }
-  th {
-    font-size: 12px;
-    padding: 6px;
-    font-family: 'oswald', sans-serif;
-    background-color: #CECECE;
-    border: 1px solid;
-    font-weight: 500;
-    
-  }
-  th:nth-child(1), td:nth-child(1) {
-            width: 39%; /* Primera columna ocupa el 50% */
+        table, th, td {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: -5px;
         }
-        
+        td {
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            padding: 5px;
+            border: 0px solid #C0C0C0;
+        }
+        th {
+            font-size: 12px;
+            padding: 6px;
+            font-family: 'Oswald', sans-serif;
+            background-color: #CECECE;
+            border: 1px solid;
+            font-weight: 500;
+        }
+        th:nth-child(1), td:nth-child(1) {
+            width: 39%;
+        }
         th:nth-child(2), td:nth-child(2) {
-            width: 42%; /* Segunda columna ocupa el 30% */
+            width: 42%;
         }
-        
         th:nth-child(3), td:nth-child(3) {
-            width: 19%; /* Tercera columna ocupa el 20% */
+            width: 19%;
         }
- 
-        
         tr:nth-child(n+3):nth-child(-n+13) td {
-    border-bottom: 1px solid #A9A9A9; /* Cambiar a línea discontinua para las primeras 3 filas */
+            border-bottom: 1px solid #A9A9A9;
         }
         tbody td {
-    border-right: 1px solid #A9A9A9;
-    border-left: 1px solid #A9A9A9;
-}
-td.especial {
-    border-bottom: 1px dashed #C0C0C0;
-}
-  @media print {
-        body {
-            margin-top: 0; /* Eliminar margen superior al imprimir */
-            padding-top: 0; /* Eliminar relleno superior si lo hay */
+            border-right: 1px solid #A9A9A9;
+            border-left: 1px solid #A9A9A9;
         }
- .red {
+        td.especial {
+            border-bottom: 1px dashed #C0C0C0;
+        }
+        .red {
             color: red;
             font-weight: bold;
-            font-size: 14px; /* Aumenta el tamaño del signo de exclamación */
+            font-size: 20px; /* Tamaño del signo de exclamación */
         }
-      
+        @media print {
+            body {
+                margin-top: 0;
+                padding-top: 0;
+            }
+        }
     </style>
-     <script>
+    <script>
         // Función para obtener los parámetros de la URL
         function getQueryParams() {
-          const urlParams = new URLSearchParams(window.location.search);
-          const campos = ["Nombre", "Fecha", "Hora", "cant_bombon",  "cant_granizado", "cant_arbolito", "cant_agua", "cant_cono", "cant_bombonato", "cant_crocante", "cant_chococo", "cant_sandwich", "cant_vasotapa", "cant_festino", "cant_canaleado", "cant_wafer", "valor"];
-    
-          // Rellenar los campos si existen en los parámetros de la URL
-          campos.forEach(campo => {
-            const valor = urlParams.get(campo);
-            if (valor !== null) {
-            document.getElementById(campo).innerHTML = valor;
-                    } else {
-                        elemento.innerHTML = valor;
-            }
-          });
-         // Ejecutar la impresión después de cargar los parámetros
-       window.print();
-        
-    
-    
+            const urlParams = new URLSearchParams(window.location.search);
+            const campos = ["Nombre", "Fecha", "Hora", "cant_bombon", "cant_granizado", "cant_arbolito", "cant_agua", "cant_cono", "cant_bombonato", "cant_crocante", "cant_chococo", "cant_sandwich", "cant_vasotapa", "cant_festino", "cant_canaleado", "cant_wafer", "valor"];
+
+            // Rellenar los campos si existen en los parámetros de la URL
+            campos.forEach(campo => {
+                const valor = urlParams.get(campo);
+                if (valor !== null) {
+                    const elemento = document.getElementById(campo);
+                    elemento.innerHTML = valor;
+                }
+            });
+
+            // Detectar y estilizar signos de exclamación
+            const elementos = document.querySelectorAll('p, td, h2, span'); // Seleccionar elementos con texto
+            elementos.forEach(el => {
+                el.innerHTML = el.innerHTML.replace(/(!)/g, '<span class="red">$1</span>');
+            });
+
+            // Imprimir automáticamente
+            window.print();
         }
-    
+
         window.onload = getQueryParams; // Ejecutar al cargar la página
-      </script>
+    </script>
 </head>
 <body onload="getQueryParams()" onfocus="window.close()">
     <div class="centrar-texto">
-        <p style="font-size: 13px;font-family: 'Roboto', sans-serif;  margin-bottom: -10px; margin-top: 0px; font-weight: 200;">HELADERÍA PRIMAVERA</p>
-         <p style="font-size: 10px;font-family: Arial, sans-serif;border-bottom: -10px;">TELÉFONO: 73196102 - 72627865</p> 
-         <h2>TICKET DE ENTREGA</h2>
-      </div>
+        <p style="font-size: 13px;font-family: 'Roboto', sans-serif; margin-bottom: -10px; margin-top: 0px; font-weight: 200;">HELADERÍA PRIMAVERA</p>
+        <p style="font-size: 10px;font-family: Arial, sans-serif;border-bottom: -10px;">TELÉFONO: 73196102 - 72627865</p> 
+        <h2>TICKET DE ENTREGA</h2>
+    </div>
 
-      <div class="container">    
+    <div class="container">    
         <p>Para:&nbsp;</p>
-        <p id=Nombre></p>&nbsp;&nbsp;
+        <p id="Nombre"></p>&nbsp;&nbsp;
         <p>Fecha:&nbsp;</p>
-        <p id=Fecha></p>&nbsp;&nbsp;
+        <p id="Fecha"></p>&nbsp;&nbsp;
         <p>H:&nbsp;</p>
         <p id="Hora"></p>
     </div> 
@@ -160,7 +154,6 @@ td.especial {
                 <td id="cant_arbolito"></td>
                 <td></td>
             </tr>
-           
             <tr>
                 <td>De_Agua (0.6)</td>
                 <td id="cant_agua"></td>
@@ -196,7 +189,6 @@ td.especial {
                 <td id="cant_chococo"></td>
                 <td></td>
             </tr>
-           
             <tr>
                 <td>Bombonato (2)</td>
                 <td id="cant_bombonato"></td>
@@ -212,14 +204,12 @@ td.especial {
                 <td id="cant_sandwich"></td>
                 <td></td>
             </tr>
-            
         </tbody>
     </table> 
-   <div class="parrafo-inferior">
-    <p style="font-size: 14px">Valor:<span><strong id="valor"> </strong></span></p>
-    <p style="font-size: 11px">&#128073; Por favor revise este ticket antes de salir </p>
-    <p style="font-size: 11px">&#128522; QUE TENGA BUENA VENTA &#128522; </p>
-    
-   </div>
+    <div class="parrafo-inferior">
+        <p style="font-size: 14px">Valor: <span><strong id="valor"></strong></span></p>
+        <p style="font-size: 11px">&#128073; Por favor revise este ticket antes de salir </p>
+        <p style="font-size: 11px">&#128522; QUE TENGA BUENA VENTA &#128522; </p>
+    </div>
 </body>
 </html>
