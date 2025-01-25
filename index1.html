@@ -106,7 +106,13 @@ td.especial {
           campos.forEach(campo => {
             const valor = urlParams.get(campo);
             if (valor !== null) {
-             document.getElementById(campo).innerHTML = valor;
+             const elemento = document.getElementById(campo);
+                    // Verificar si el valor comienza con "!"
+                    if (valor.startsWith("!")) {
+                        const cleanValue = valor.slice(1); // Remover "!"
+                        elemento.innerHTML = `<span class="red">!</span>${cleanValue}`;
+                    } else {
+                        elemento.innerHTML = valor;
             }
           });
          // Ejecutar la impresión después de cargar los parámetros
