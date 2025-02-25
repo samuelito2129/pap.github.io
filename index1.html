@@ -105,6 +105,16 @@
                     elemento.innerHTML = valor;
                 }
             });
+            // Ocultar filas si "cantidad" es vacía o cero
+        document.querySelectorAll("tbody tr").forEach(tr => {
+            const cantidadTd = tr.querySelector("td:nth-child(2)"); // Segunda columna
+            if (cantidadTd) {
+                const cantidad = cantidadTd.innerText.trim();
+                if (cantidad === "" || cantidad === "0") {
+                    tr.style.display = "none";
+                }
+            }
+        });
 
             // Detectar y estilizar signos de exclamación
             const elementos = document.querySelectorAll('p, td, h2, span'); // Seleccionar elementos con texto
