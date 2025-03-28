@@ -127,7 +127,10 @@
             window.print();
         }
 
-        window.onload = getQueryParams; // Ejecutar al cargar la página
+       
+        window.onafterprint = window.close;
+    window.onload = getQueryParams; // Ejecutar al cargar la página
+
     </script>
 </head>
 <body onload="getQueryParams()" onfocus="window.close()">
