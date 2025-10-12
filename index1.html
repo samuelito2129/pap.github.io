@@ -96,7 +96,7 @@
         // Función para obtener los parámetros de la URL
         function getQueryParams() {
             const urlParams = new URLSearchParams(window.location.search);
-            const campos = ["Nombre", "Fecha", "Hora", "cant_bombon", "cant_granizado", "cant_arbolito", "cant_agua", "cant_cono", "cant_bombonato", "cant_crocante", "cant_chococo", "cant_sandwich", "cant_vasotapa", "cant_festino", "cant_canaleado", "cant_wafer", "valor"];
+            const campos = ["Nombre", "Fecha", "Hora", "cant_bombon", "cant_granizado", "cant_arbolito", "cant_tamarindo", "cant_agua", "cant_cono", "cant_bombonato", "cant_crocante", "cant_chococo", "cant_sandwich", "cant_vasotapa", "cant_festino", "cant_canaleado", "cant_wafer", "valor"];
 
             // Rellenar los campos si existen en los parámetros de la URL
             campos.forEach(campo => {
@@ -157,27 +157,32 @@
         </thead>
         <tbody>
             <tr>
-                <td>Bombón (1)</td>
+                <td>Bombón (1.30)</td>
                 <td class="especial" id="cant_bombon"></td>
                 <td class="especial"></td>
             </tr>
             <tr>
-                <td>Granizado (1)</td>
+                <td>Granizado (1.30)</td>
                 <td class="especial" id="cant_granizado"></td>
                 <td class="especial"></td>
             </tr>
             <tr>
-                <td>Arbolito (1)</td>
+                <td>Arbolito (1.30)</td>
                 <td id="cant_arbolito"></td>
                 <td></td>
             </tr>
             <tr>
-                <td>De_Agua (0.6)</td>
+                <td>Gemelo/Tamarindo(0.80)</td>
+                <td id="cant_tamarindo"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>De_Agua(colores) (0.60)</td>
                 <td id="cant_agua"></td>
                 <td></td>
             </tr>
             <tr>
-                <td>Wafer (1.2)</td>
+                <td>Wafer (1.50)</td>
                 <td id="cant_wafer"></td>
                 <td></td>
             </tr>
@@ -187,39 +192,39 @@
                 <td></td>
             </tr>
            <tr>
-                <td>Vaso_tapa (1.5)</td>
+                <td>Vaso_tapa (2)</td>
                 <td id="cant_vasotapa"></td>
                 <td></td>
             </tr> 
             <tr>
-                <td>Cono (2)</td>
+                <td>Cono (2.50)</td>
                 <td id="cant_cono"></td>
                 <td></td>
             </tr>
              <tr>
-                <td>Bombonato (2)</td>
+                <td>Bombonato (2.50)</td>
                 <td id="cant_bombonato"></td>
                 <td></td>
             </tr>
             
             <tr>
-                <td>Crocante (2.5)</td>
+                <td>Crocante (3)</td>
                 <td id="cant_crocante"></td>
                 <td></td>
             </tr>
             <tr>
-                <td>Chococo (2.5)</td>
+                <td>Chococo (3)</td>
                 <td id="cant_chococo"></td>
                 <td></td>
             </tr>
           <tr>
-                <td>Sanwich (2.5)</td>
+                <td>Sanwich (3.50)</td>
                 <td id="cant_sandwich"></td>
                 <td></td>
             </tr>  
            
             <tr>
-                <td>Festino (3.5)</td>
+                <td>Festino (4)</td>
                 <td id="cant_festino"></td>
                 <td></td>
             </tr>
