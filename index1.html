@@ -169,58 +169,17 @@
                 el.innerHTML = el.innerHTML.replace(/(!)/g, '<span class="red">$1</span>');
             });
 
-           
+            // Imprimir automáticamente
+            window.print();
         }
 
        
-       
-        window.onload = async function () {
-
-getQueryParams();
-async function imprimirQZ() {
-
-try {
-
-    if (!qz.websocket.isActive()) {
-        await qz.websocket.connect();
-    }
-
-    const config = qz.configs.create("Canon MP250 series Printer");
-
-    const html = document.documentElement.outerHTML;
-
-    const data = [{
-        type: 'pixel',
-        format: 'html',
-        flavor: 'plain',
-        data: html
-    }];
-
-    await qz.print(config, data);
-
-    setTimeout(() => {
-        window.close();
-    }, 1000);
-
-} catch (err) {
-
-    alert("Error de impresión:\n\n" + err);
-
-}
-
-}
-
-// Esperar a que carguen las imágenes
-await new Promise(r => setTimeout(r, 700));
-
-imprimirQZ();
-
-}
+        window.onafterprint = window.close;
+    window.onload = getQueryParams; // Ejecutar al cargar la página
 
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/qz-tray@2.2.4/qz-tray.js"></script>
 </head>
-<body>
+<body onload="getQueryParams()" onfocus="window.close()">
     <div class="centrar-texto">
         <h2>PAPELITO DE PEDIDOS</h2>
     </div>
